@@ -9,17 +9,17 @@ def main():
     #main function! for debugging purposes
 
 
-    def distance(point1, point2):
-        point1_x = point1[0]
-        point1_y = point1[1]
-        point2_x = point2[0]
-        point2_y = point2[1]
+def distance(point1, point2):
+    point1_x = point1[0]
+    point1_y = point1[1]
+    point2_x = point2[0]
+    point2_y = point2[1]
 
-        delta_x = point2_x - point1_x
-        delta_y = point2_y - point1_y
-        dist = math.sqrt(delta_x **2 + delta_y **2)
+    delta_x = point2_x - point1_x
+    delta_y = point2_y - point1_y
+    dist = math.sqrt(delta_x **2 + delta_y **2)
 
-        return dist
+    return dist
 
 class Hole:
     #recieves information from the board, innitializes holes
@@ -57,8 +57,11 @@ class Hole:
 
         #TODO this hasnt actually been written yet
     def spawn(self):
-        #spawns the councilor
+        #spawns the counselor
         #shows the image (randomly)
         #appends/removes counselor image from the list of images
         #board picks which hole the counselor spawns from
+    def draw(self):
+        pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
+
 
