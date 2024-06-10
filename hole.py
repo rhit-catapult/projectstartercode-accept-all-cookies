@@ -27,7 +27,7 @@ class Hole:
         self.screen = screen
         self.x = x #center circle x coord
         self.y = y #center circle y coord
-        self.image = counselor_images #counselor images
+        self.images = counselor_images #counselor images
         self.width = self.image.get_width #width og counselor image
         self.height = self.image.get_height #height of counselor image
         self.radius = radius #radius of hole
@@ -49,8 +49,8 @@ class Hole:
                     click_pos = event.pos
                     distance_from_circle = distance(circle_center, click_pos)
 
-                   # TODO: add additional parameter which is if counselor image is shown
-                    if distance_from_circle <= circle_radius:
+
+                    if distance_from_circle <= circle_radius and self.is_active:
                         return True
                     else:
                         return False
