@@ -10,7 +10,9 @@ def main():
     # create a screen
     pygame.display.set_caption("Cookie A Counselor")
     # TODO: Change the size of the screen as you see fit!
-    screen = pygame.display.set_mode((1000, 600))
+    screen_width = 1000
+    screen_height =600
+    screen = pygame.display.set_mode((screen_width, screen_height))
 
     # let's set the framerate
     clock = pygame.time.Clock()
