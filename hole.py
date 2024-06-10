@@ -51,8 +51,8 @@ class Hole:
                     click_pos = event.pos
                     distance_from_circle = distance(circle_center, click_pos)
 
-                   # TODO: add additional parameter which is if counselor image is shown
-                    if distance_from_circle <= circle_radius:
+
+                    if distance_from_circle <= circle_radius and self.is_active:
                         return True
                     else:
                         return False
