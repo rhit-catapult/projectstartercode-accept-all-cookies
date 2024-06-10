@@ -38,3 +38,7 @@ class Board():
             hole = random.choice(self.holes)
         hole.spawn()
 
+
+    def update(self):
+        for hole in self.holes:
+            pass
