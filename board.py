@@ -8,7 +8,12 @@ class Board():
         self.screen = screen
         self.rows = rows
         self.columns = columns
-        self.counselor_images = []
+        self.counselor_images = [
+            "Images/Aaron.png", "Images/Anahita.png", "Images/Brayden.png", "Images/Claire.png",
+            "Images/Eathan.png", "Images/Eli.png", "Images/Elley.png", "Images/Emmet.png",
+            "Images/Fox.png", "Images/Hoyt.png", "Images/Kali.png", "Images/Micheal.png",
+            "Images/Reid.png", "Images/Ruby.png", "Images/Sparks.png", "Images/Tyler.png"
+        ]
         self.holes = []
         self.hole_radius = 50
         self.x_gap = (screen.get_width() - self.hole_radius * 2 * columns) / columns
