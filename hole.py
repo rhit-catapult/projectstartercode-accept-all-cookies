@@ -40,7 +40,7 @@ class Hole:
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise
-    def clicked_by(self):
+    def is_clicked(self):
         circle_center = (self.x, self.y)
         circle_radius = self.radius
 
@@ -49,13 +49,11 @@ class Hole:
                 click_pos = event.pos
                 distance_from_circle = distance(circle_center, click_pos)
 
+                return distance_from_circle <= circle_radius and self.is_active
+        return False
 
-                if distance_from_circle <= circle_radius and self.is_active:
-                    return True
-                else:
-                    return False
 
-    #TODO this hasn't actually been written yet
+        #TODO this hasn't actually been written yet
     def spawn(self):
         #spawns the counselor
         self.current_counselor = random.choice(self.counselor_images)
