@@ -4,12 +4,15 @@ import random
 import time
 
 
+score = 0
+
+
 def main():
+    score = 0
     # turn on pygame
     pygame.init()
     # create a screen
     pygame.display.set_caption("Cookie A Counselor")
-    # TODO: Change the size of the screen as you see fit!
     screen_width = 1000
     screen_height =600
     screen = pygame.display.set_mode((screen_width, screen_height))
@@ -23,7 +26,6 @@ def main():
 
             # TODO: Add you events code
 
-        # TODO: Fill the screen with whatever background color you like!
         screen.fill((255, 255, 255))
 
         # TODO: Add your project code

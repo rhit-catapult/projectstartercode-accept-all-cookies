@@ -2,7 +2,7 @@ import hole
 import pygame
 import random
 
-
+# This is the board. It manages the holes.
 class Board():
     def __init__(self, screen, background, rows, columns):
         self.screen = screen
@@ -23,12 +23,12 @@ class Board():
                     y = self.y_gap + 2*j
                     self.holes.append(Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
 
-
+    # This tells each hole to draw itself
     def draw(self):
         for hole in self.holes:
             hole.draw()
 
-
+    # This tells an empty hole to spawn a counselor
     def spawn_counselor(self):
         hole = random.choice(self.holes)
         while hole.is_active:
