@@ -75,4 +75,7 @@ class Hole:
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
 
+        if self.is_active:
+            self.screen.blit(self.current_counselor, (self.x, self.y))
+
 
