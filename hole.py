@@ -70,8 +70,8 @@ class Hole:
         if self.end_time == time.time():
             self.is_active = False
             #TODO add code to play scream
-        elif clicked_by():
-            self.is.active = False
+        elif self.clicked_by():
+            self.is_active = False
             #TODO add code to play eating sound
 
 
