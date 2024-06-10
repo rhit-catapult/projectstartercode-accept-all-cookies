@@ -1,6 +1,7 @@
 import hole
 import pygame
 import random
+import math
 
 # This is the board. It manages the holes.
 class Board():
@@ -14,6 +15,13 @@ class Board():
             "Images/Fox.png", "Images/Hoyt.png", "Images/Kali.png", "Images/Micheal.png",
             "Images/Reid.png", "Images/Ruby.png", "Images/Sparks.png", "Images/Tyler.png"
         ]
+        for image in self.counselor_images:
+            height = self.current_counselor.get_height()
+            width = self.current_counselor.get_width()
+
+            diagonal = math.sqrt(height**2+width**2)
+            #TODO add code to set diagonal to 50 (or sm) to scale to the size of the hole
+            pygame.transform.scale()
         self.holes = []
         self.hole_radius = 50
         self.x_gap = (screen.get_width() - self.hole_radius * 2 * columns) / columns
