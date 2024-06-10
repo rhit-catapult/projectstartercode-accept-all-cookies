@@ -26,7 +26,7 @@ def main():
 
             # TODO: Add you events code
 
-        screen.fill((255, 255, 255))
+        screen.fill((172, 45, 201))
 
         # TODO: Add your project code
 
