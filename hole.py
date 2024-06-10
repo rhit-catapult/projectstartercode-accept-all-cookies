@@ -34,6 +34,7 @@ class Hole:
         self.is_active = False #is there a counselor in the hole
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
+        self.end_time = 0.0
         print("(", x, ",", y, ")")
 
 
@@ -64,11 +65,15 @@ class Hole:
         self.start_time = time.time()
         self.is_active = True
 
+    def despawn(self):
+        self.end_time = self.start_time + random.random() * 2.5
+        if self.end_time == time.time():
+            self.is_active = False
+            #TODO add code to play scream
+        elif clicked_by():
+            self.is.active = False
+            #TODO add code to play eating sound
 
-        #spawns the councilor#
-        #shows the image (randomly)
-        #appends/removes counselor image from the list of images
-        #board picks which hole the counselor spawns from
 
     ##
     def draw(self):
