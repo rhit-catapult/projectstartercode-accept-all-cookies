@@ -44,6 +44,8 @@ class Hole:
         circle_center = (self.x, self.y)
         circle_radius = self.radius
         distance_from_circle = distance(circle_center, click_pos)
+        return distance_from_circle < circle_radius and self.is_active
+
 
         #return distance_from_circle <= circle_radius and self.is_active
        # return False
