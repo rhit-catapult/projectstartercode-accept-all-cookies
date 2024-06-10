@@ -56,7 +56,7 @@ class Hole:
                     else:
                         return False
 
-        #TODO this hasn't actually been written yet
+        # this hasn't actually been written yet
     def spawn(self):
         #spawns the counselor
         self.current_counselor = random.choice(self.counselor_images)
@@ -70,7 +70,7 @@ class Hole:
         #appends/removes counselor image from the list of images
         #board picks which hole the counselor spawns from
 
-
+    ##
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
 
