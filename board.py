@@ -31,7 +31,7 @@ class Board():
         for hole in self.holes:
             hole.draw()
 
-    # This tells an empty hole to spawn a counselor
+    # This tells an empty hole to spawn a counselor#
     def spawn_counselor(self):
         hole = random.choice(self.holes)
         while hole.is_active:
