@@ -21,7 +21,7 @@ class Board():
             for j in range(columns):
                     x = self.x_gap + 2*i
                     y = self.y_gap + 2*j
-                    self.holes.append(Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
+                    self.holes.append(hole.Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
 
     # This tells each hole to draw itself
     def draw(self):
