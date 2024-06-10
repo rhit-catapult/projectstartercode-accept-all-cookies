@@ -7,11 +7,10 @@ import time
 def main():
     # turn on pygame
     pygame.init()
-    ##########
     # create a screen
-    pygame.display.set_caption("Cool Project")
+    pygame.display.set_caption("Cookie A Counselor")
     # TODO: Change the size of the screen as you see fit!
-    screen = pygame.display.set_mode((640, 480))
+    screen = pygame.display.set_mode((1000, 600))
 
     # let's set the framerate
     clock = pygame.time.Clock()
