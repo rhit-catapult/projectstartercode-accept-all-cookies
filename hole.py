@@ -66,7 +66,7 @@ class Hole:
         self.is_active = True
 
 
-        #spawns the councilor
+        #spawns the councilor#
         #shows the image (randomly)
         #appends/removes counselor image from the list of images
         #board picks which hole the counselor spawns from
