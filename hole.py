@@ -27,7 +27,7 @@ class Hole:
         self.screen = screen
         self.x = x #center circle x coord
         self.y = y #center circle y coord
-        self.images = counselor_images #counselor images
+        self.image = counselor_images #counselor images
         self.width = self.image.get_width #width og counselor image
         self.height = self.image.get_height #height of counselor image
         self.radius = radius #radius of hole
@@ -51,6 +51,7 @@ class Hole:
 
 
                     if distance_from_circle <= circle_radius and self.is_active:
+
                         return True
                     else:
                         return False
@@ -61,7 +62,12 @@ class Hole:
         #shows the image (randomly)
         #appends/removes counselor image from the list of images
         #board picks which hole the counselor spawns from
+
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
+
+        if self.is_active:
+            self.screen.blit(self.current_counselor, (self.x, self.y))
+
 
 
