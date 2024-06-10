@@ -32,8 +32,8 @@ def main():
             # TODO: Add you events code
 
         screen.fill((172, 45, 201))
+        the_board.update()
         the_board.draw()#
-
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!

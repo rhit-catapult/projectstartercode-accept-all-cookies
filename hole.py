@@ -61,14 +61,17 @@ class Hole:
         self.start_time = time.time()
         self.is_active = True
 
-    def despawn(self):
-        self.end_time = self.start_time + random.random() * 2.5
-        if self.end_time == time.time():
-            self.is_active = False
+    def despawn(self, ate_cookie):
+        self.is_active = False
+        self.counselor_images.append(self.current_counselor)
+        if not ate_cookie:
             #TODO add code to play scream
-        elif clicked_by():
-            self.is_active = False
+            pass
+        else:
             #TODO add code to play eating sound
+            pass
+
+
 
 
 
