@@ -8,18 +8,18 @@ import math
 def main():
     #main function! for debugging purposes
 
+def distance(point1, point2):
+    point1_x = point1[0]
+    point1_y = point1[1]
+    point2_x = point2[0]
+    point2_y = point2[1]
 
-    def distance(point1, point2):
-        point1_x = point1[0]
-        point1_y = point1[1]
-        point2_x = point2[0]
-        point2_y = point2[1]
+    delta_x = point2_x - point1_x
+    delta_y = point2_y - point1_y
+    dist = math.sqrt(delta_x ** 2 + delta_y ** 2)
 
-        delta_x = point2_x - point1_x
-        delta_y = point2_y - point1_y
-        dist = math.sqrt(delta_x **2 + delta_y **2)
+    return dist
 
-        return dist
 
 class Hole:
     #recieves information from the board, innitializes holes
