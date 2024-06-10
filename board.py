@@ -49,4 +49,6 @@ class Board():
 
     def update(self):
         for hole in self.holes:
-            pass
+            if hole.is_clicked():
+                hole.despawn()
+                print(True)
