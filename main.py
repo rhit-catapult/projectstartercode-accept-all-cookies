@@ -4,7 +4,11 @@ import random
 import time
 
 
+score = 0
+
+
 def main():
+    score = 0
     # turn on pygame
     pygame.init()
     # create a screen
