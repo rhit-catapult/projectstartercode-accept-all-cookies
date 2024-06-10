@@ -32,7 +32,7 @@ def main():
             # TODO: Add you events code
 
         screen.fill((172, 45, 201))
-        the_board.draw()
+        the_board.draw()#
 
         # TODO: Add your project code
 
