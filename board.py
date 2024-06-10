@@ -18,7 +18,6 @@ class Board():
         self.hole_radius = 50
         self.x_gap = (screen.get_width() - self.hole_radius * 2 * columns) / columns
         self.y_gap = (screen.get_height() - self.hole_radius * 2 * rows) / rows
-        self.counselor_images = []
         for i in range(len(self.counselor_images)):
             self.counselor_images[i] = pygame.image.load(self.counselor_images[i])
         for i in range(columns):

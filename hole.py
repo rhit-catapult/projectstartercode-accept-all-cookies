@@ -35,8 +35,7 @@ class Hole:
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
         self.end_time = 0.0
-        print("(", x, ",", y, ")")
-
+        print(self.counselor_images)
 
 
     #takes no input
@@ -71,7 +70,7 @@ class Hole:
             self.is_active = False
             #TODO add code to play scream
         elif clicked_by():
-            self.is.active = False
+            self.is_active = False
             #TODO add code to play eating sound
 
 
