@@ -40,17 +40,13 @@ class Hole:
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise
-    def is_clicked(self):
+    def is_clicked(self, click_pos):
         circle_center = (self.x, self.y)
         circle_radius = self.radius
+        distance_from_circle = distance(circle_center, click_pos)
 
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                click_pos = event.pos
-                distance_from_circle = distance(circle_center, click_pos)
-
-                return distance_from_circle <= circle_radius and self.is_active
-        return False
+        #return distance_from_circle <= circle_radius and self.is_active
+       # return False
 
 
         #TODO this hasn't actually been written yet
