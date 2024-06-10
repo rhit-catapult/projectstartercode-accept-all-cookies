@@ -23,6 +23,7 @@ def main():
 
     # let's set the frame rate
     clock = pygame.time.Clock()
+    the_board.spawn_counselor()
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -31,12 +32,13 @@ def main():
             # TODO: Add you events code
 
         screen.fill((172, 45, 201))
-        the_board.draw()
+        the_board.draw()#
 
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!
         pygame.display.update()
+
 
 
 main()
