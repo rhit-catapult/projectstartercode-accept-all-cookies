@@ -21,7 +21,7 @@ def main():
     columns = 4
     the_board = board.Board(screen, rows, columns)
 
-    # let's set the framerate
+    # let's set the frame rate
     clock = pygame.time.Clock()
     while True:
         for event in pygame.event.get():
@@ -30,8 +30,8 @@ def main():
 
             # TODO: Add you events code
 
-        screen.fill((255, 255, 255))
-        the_board.draw()
+        screen.fill((172, 45, 201))
+
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!

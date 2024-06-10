@@ -24,7 +24,7 @@ def distance(point1, point2):
 
 
 class Hole:
-    #recieves information from the board, innitializes holes
+    #recieves information from the board, initializes holes
     def __init__(self, screen, x, y, counselor_images, radius):
         self.screen = screen
         self.x = x #center circle x coord
@@ -45,8 +45,6 @@ class Hole:
             circle_radius = self.radius
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     click_pos = event.pos
                     distance_from_circle = distance(circle_center, click_pos)
@@ -57,7 +55,7 @@ class Hole:
                     else:
                         return False
 
-        #TODO this hasnt actually been written yet
+        #TODO this hasn't actually been written yet
     def spawn(self):
         #spawns the counselor
         self.current_counselor = random.choice(self.counselor_images)
