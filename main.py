@@ -17,7 +17,7 @@ def main():
     screen_height =600
     screen = pygame.display.set_mode((screen_width, screen_height))
 
-    # let's set the framerate
+    # let's set the frame rate
     clock = pygame.time.Clock()
     while True:
         for event in pygame.event.get():
