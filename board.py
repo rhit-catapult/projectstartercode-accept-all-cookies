@@ -4,9 +4,8 @@ import random
 
 # This is the board. It manages the holes.
 class Board():
-    def __init__(self, screen, background, rows, columns):
+    def __init__(self, screen, rows, columns):
         self.screen = screen
-        self.background = background
         self.rows = rows
         self.columns = columns
         self.counselor_images = []
@@ -19,8 +18,8 @@ class Board():
             self.counselor_images[i] = pygame.image.load(self.counselor_images[i])
         for i in range(rows):
             for j in range(columns):
-                    x = self.x_gap + 2*i
-                    y = self.y_gap + 2*j
+                    x = self.x_gap + 2 * i
+                    y = self.y_gap + 2 * j
                     self.holes.append(hole.Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
 
     # This tells each hole to draw itself
