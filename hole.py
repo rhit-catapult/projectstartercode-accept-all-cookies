@@ -35,29 +35,25 @@ class Hole:
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
         self.end_time = 0.0
-        print("(", x, ",", y, ")")
-
+        print(self.counselor_images)
 
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise
-    def clicked_by(self):
-        while True:
-            circle_center = (self.x, self.y)
-            circle_radius = self.radius
+    def is_clicked(self):
+        circle_center = (self.x, self.y)
+        circle_radius = self.radius
 
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    click_pos = event.pos
-                    distance_from_circle = distance(circle_center, click_pos)
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                click_pos = event.pos
+                distance_from_circle = distance(circle_center, click_pos)
+
+                return distance_from_circle <= circle_radius and self.is_active
+        return False
 
 
-                    if distance_from_circle <= circle_radius and self.is_active:
-                        return True
-                    else:
-                        return False
-
-        # this hasn't actually been written yet
+        #TODO this hasn't actually been written yet
     def spawn(self):
         #spawns the counselor
         self.current_counselor = random.choice(self.counselor_images)
@@ -70,12 +66,12 @@ class Hole:
         if self.end_time == time.time():
             self.is_active = False
             #TODO add code to play scream
-        elif self.clicked_by():
+        elif clicked_by():
             self.is_active = False
             #TODO add code to play eating sound
 
 
-    ##
+
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
 
