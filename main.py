@@ -15,7 +15,7 @@ def main():
     # create a screen
     pygame.display.set_caption("Cookie A Counselor")
     screen_width = 1000
-    screen_height =600
+    screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
     rows = 3
     columns = 4
@@ -31,6 +31,7 @@ def main():
             # TODO: Add you events code
 
         screen.fill((172, 45, 201))
+        the_board.draw()
 
         # TODO: Add your project code
 

@@ -11,15 +11,15 @@ class Board():
         self.counselor_images = []
         self.holes = []
         self.hole_radius = 50
-        self.x_gap = (screen.get_width() - 100 * columns) // columns
-        self.y_gap = (screen.get_height() - 100 * rows) // rows
+        self.x_gap = (screen.get_width() - self.hole_radius * 2 * columns) // columns
+        self.y_gap = (screen.get_height() - self.hole_radius * 2 * rows) // rows
         self.counselor_images = []
         for i in range(len(self.counselor_images)):
             self.counselor_images[i] = pygame.image.load(self.counselor_images[i])
         for i in range(rows):
             for j in range(columns):
-                    x = self.x_gap + 2 * i
-                    y = self.y_gap + 2 * j
+                    x = self.x_gap * (i + 0.5) + self.hole_radius * (1 + 2 * i)
+                    y = self.y_gap * (j + 0.5) + self.hole_radius * (1 + 2 * j)
                     self.holes.append(hole.Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
 
     # This tells each hole to draw itself

@@ -34,6 +34,7 @@ class Hole:
         self.is_active = False #is there a counselor in the hole
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
+        print("(", x, ",", y, ")")
 
 
 
