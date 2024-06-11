@@ -37,8 +37,6 @@ class Hole:
         self.duration = 0.0
         self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
         self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
-        print(self.counselor_images)
-
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise

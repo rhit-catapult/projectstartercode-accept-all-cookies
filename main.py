@@ -15,8 +15,8 @@ def main():
     screen_width = 1000
     screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
-    rows = 3
-    columns = 4
+    rows = 100
+    columns = 100
     the_board = board.Board(screen, rows, columns)
     spawn_probabily = 0.997 #ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
