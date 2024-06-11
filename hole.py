@@ -5,6 +5,9 @@ import time
 import math
 
 
+global score
+
+
 def main():
     #main function! for debugging purposes
     pass
@@ -37,8 +40,6 @@ class Hole:
         self.duration = 0.0
         self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
         self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
-        print(self.counselor_images)
-
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise
@@ -64,12 +65,16 @@ class Hole:
 
 
     def despawn(self, ate_cookie):
+        global score
         self.is_active = False
         self.counselor_images.append(self.current_counselor)
         if not ate_cookie:
             self.scream.play()
+            score -= 10
         else:
             self.eat.play()
+            score += 100
+
 
 
     def check_timeout(self):
