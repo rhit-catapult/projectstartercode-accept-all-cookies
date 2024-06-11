@@ -40,7 +40,7 @@ def main():
 
         screen.fill((172, 45, 201))
         the_board.update(click_pos)
-        the_board.draw()#
+        the_board.draw()
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!

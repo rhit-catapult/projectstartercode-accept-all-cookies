@@ -25,7 +25,7 @@ def distance(point1, point2):
 
 class Hole:
     #recieves information from the board, initializes holes
-    def __init__(self, screen, x, y, counselor_images, radius,scream,eat):
+    def __init__(self, screen, x, y, counselor_images, radius):
         self.screen = screen
         self.x = x #center circle x coord
         self.y = y #center circle y coord
@@ -35,10 +35,7 @@ class Hole:
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
         self.end_time = 0.0
-        self.scream=scream
-        self.eat=eat
         print(self.counselor_images)
-
 
 
     #takes no input
@@ -62,16 +59,20 @@ class Hole:
         self.start_time = time.time()
         self.is_active = True
 
-
     def despawn(self, ate_cookie):
         self.is_active = False
         self.counselor_images.append(self.current_counselor)
         if not ate_cookie:
             #TODO add code to play scream
-           scream.play()
+            pass
         else:
-           eat.play()
             #TODO add code to play eating sound
+            pass
+
+
+
+
+
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
 
