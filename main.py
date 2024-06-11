@@ -20,6 +20,7 @@ def main():
     rows = 3
     columns = 4
     the_board = board.Board(screen, rows, columns)
+    spawn_probabily = 0.997 #ehh... sort of
 
     # let's set the frame rate
     clock = pygame.time.Clock()
@@ -38,6 +39,8 @@ def main():
 
             # TODO: Add you events code
 
+        if random.random() > spawn_probabily:
+            the_board.spawn_counselor()
         screen.fill((172, 45, 201))
         the_board.update(click_pos)
         the_board.draw()
@@ -45,7 +48,6 @@ def main():
 
         # don't forget the update, otherwise nothing will show up!
         pygame.display.update()
-
 
 
 main()

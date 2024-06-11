@@ -34,7 +34,7 @@ class Hole:
         self.is_active = False #is there a counselor in the hole
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
-        self.duration = 0.0
+        self.end_time = 0.0
         print(self.counselor_images)
 
 
@@ -58,8 +58,6 @@ class Hole:
         self.counselor_images.remove(self.current_counselor)
         self.start_time = time.time()
         self.is_active = True
-        self.duration = random.random() * 2.5 + 0.5
-
 
     def despawn(self, ate_cookie):
         self.is_active = False
@@ -72,8 +70,7 @@ class Hole:
             pass
 
 
-    def check_timeout(self):
-        return self.is_active and time.time() - self.start_time > self.duration
+
 
 
     def draw(self):
@@ -81,5 +78,4 @@ class Hole:
 
         if self.is_active:
             self.screen.blit(self.current_counselor, (self.x - self.radius, self.y - self.radius))
-
 
