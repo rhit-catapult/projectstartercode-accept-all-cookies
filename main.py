@@ -1,8 +1,7 @@
 import pygame
 import sys
 import random
-import time
-import board
+from Images import board
 import hole
 
 
@@ -19,20 +18,40 @@ def main():
     rows = 3
     columns = 4
     the_board = board.Board(screen, rows, columns)
-    spawn_probabily = 0.997 #ehh... sort of
+    spawn_probabily = 0.998 #ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
 
     #TODO add start screen
-    #screen.fill()
+
 
     # let's set the frame rate
     clock = pygame.time.Clock()
     the_board.spawn_counselor()
     click_pos = (0,0)
-    pygame.mouse.set_visible(False)
+    pygame.mouse.set_visible(True)
     cookie = pygame.image.load("Images/Cookie.png")
     cookie = pygame.transform.scale(cookie, (25, 25))
     cursor_img_rect = cookie.get_rect()
+    start = pygame.image.load("Images/StartScreen")
+    start = pygame.transform.scale(start, (screen_width, screen_height))
+
+    def startstive():
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    return
+            screen.fill((172, 45, 201))
+
+            screen.blit(start, (0, 0))
+            pygame.display.update()
+            if random.random() > 0.99999:
+                break
+        pygame.mouse.set_visible(False)
+
+    startstive()
+
     while True:
         clicked = False
         for event in pygame.event.get():
@@ -58,6 +77,7 @@ def main():
         screen.blit(text, (0,0))
         cursor_img_rect.center = pygame.mouse.get_pos()  # update position
         screen.blit(cookie, cursor_img_rect)
+
         pygame.display.update()
 
 
