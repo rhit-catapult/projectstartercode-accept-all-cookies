@@ -18,7 +18,7 @@ def main():
     rows = 3
     columns = 4
     the_board = board.Board(screen, rows, columns)
-    spawn_probabily = 0.997 #ehh... sort of
+    spawn_probabily = 0.998 #ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
 
     #TODO add start screen
@@ -33,27 +33,24 @@ def main():
     cookie = pygame.transform.scale(cookie, (25, 25))
     cursor_img_rect = cookie.get_rect()
     start = pygame.image.load("Images/StartScreen")
+    start = pygame.transform.scale(start, (screen_width, screen_height))
 
-    class BreakIt(Exception):
-        pass
-
-    try:
+    def startstive():
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    raise BreakIt
+                    return
             screen.fill((172, 45, 201))
 
-            start = pygame.transform.scale(start, (screen_width, screen_height))
             screen.blit(start, (0, 0))
             pygame.display.update()
             if random.random() > 0.99999:
                 break
         pygame.mouse.set_visible(False)
-    except BreakIt:
-        pass
+
+    startstive()
 
     while True:
         clicked = False
