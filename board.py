@@ -15,6 +15,7 @@ class Board():
             "Images/Fox.png", "Images/Hoyt.png", "Images/Kali.png", "Images/Micheal.png",
             "Images/Reid.png", "Images/Ruby.png", "Images/Sparks.png", "Images/Tyler.png"
         ]
+
         # for image in self.counselor_images:
         #     height = image.get_height()
         #     width = image.get_width()
