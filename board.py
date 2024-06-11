@@ -1,7 +1,7 @@
 import hole
+import math
 import pygame
 import random
-import math
 
 # This is the board. It manages the holes.
 class Board():

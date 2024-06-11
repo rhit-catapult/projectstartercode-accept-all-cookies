@@ -23,7 +23,7 @@ def main():
     font = pygame.font.SysFont("papyrus", 32)
 
     #TODO add start screen
-    screen.fill()
+    #screen.fill()
 
     # let's set the frame rate
     clock = pygame.time.Clock()
