@@ -15,6 +15,7 @@ class Board():
             "Images/Fox.png", "Images/Hoyt.png", "Images/Kali.png", "Images/Micheal.png",
             "Images/Reid.png", "Images/Ruby.png", "Images/Sparks.png", "Images/Tyler.png"
         ]
+
         # for image in self.counselor_images:
         #     height = image.get_height()
         #     width = image.get_width()
@@ -50,5 +51,6 @@ class Board():
     def update(self, click_pos):
         for hole in self.holes:
             if hole.is_clicked(click_pos):
-                hole.despawn(True)
-                print(True)
+                hole.despawn(ate_cookie=True)
+            if hole.check_timeout():
+                hole.despawn(ate_cookie=False)

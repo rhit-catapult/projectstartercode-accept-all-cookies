@@ -5,8 +5,6 @@ import time
 import board
 
 
-score = 0
-
 
 def main():
     score = 0
@@ -21,6 +19,7 @@ def main():
     columns = 4
     the_board = board.Board(screen, rows, columns)
     spawn_probabily = 0.997 #ehh... sort of
+    font = pygame.font.SysFont("papyrus", 32)
 
     # let's set the frame rate
     clock = pygame.time.Clock()
@@ -47,6 +46,8 @@ def main():
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!
+        text = font.render(f"Score = {score}", True, (0, 0, 0))
+        screen.blit(text, (0,0))
         pygame.display.update()
 
 

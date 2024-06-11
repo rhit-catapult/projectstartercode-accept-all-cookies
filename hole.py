@@ -34,7 +34,9 @@ class Hole:
         self.is_active = False #is there a counselor in the hole
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
-        self.end_time = 0.0
+        self.duration = 0.0
+        self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
+        self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
         print(self.counselor_images)
 
 
@@ -58,24 +60,25 @@ class Hole:
         self.counselor_images.remove(self.current_counselor)
         self.start_time = time.time()
         self.is_active = True
+        self.duration = random.random() * 2.5 + 0.5
+
 
     def despawn(self, ate_cookie):
         self.is_active = False
         self.counselor_images.append(self.current_counselor)
         if not ate_cookie:
-            #TODO add code to play scream
-            pass
+            self.scream.play()
         else:
-            #TODO add code to play eating sound
-            pass
+            self.eat.play()
 
 
-
+    def check_timeout(self):
+        return self.is_active and time.time() - self.start_time > self.duration
 
 
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)
 
         if self.is_active:
+            self.current_counselor = pygame.transform.scale(self.current_counselor, (100, 100))
             self.screen.blit(self.current_counselor, (self.x - self.radius, self.y - self.radius))
-
