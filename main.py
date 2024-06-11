@@ -24,16 +24,23 @@ def main():
     # let's set the frame rate
     clock = pygame.time.Clock()
     the_board.spawn_counselor()
+    click_pos = (0,0)
     while True:
+        clicked = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                click_pos = event.pos
+                clicked = True
+        if not clicked:
+            click_pos = (0,0)
 
             # TODO: Add you events code
 
         screen.fill((172, 45, 201))
-        the_board.update()
-        the_board.draw()#
+        the_board.update(click_pos)
+        the_board.draw()
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!

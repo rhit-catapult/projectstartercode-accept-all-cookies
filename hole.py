@@ -34,23 +34,21 @@ class Hole:
         self.is_active = False #is there a counselor in the hole
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
-        self.end_time = 0.0
+        self.duration = 0.0
         print(self.counselor_images)
 
 
     #takes no input
     #returns boolean value - true if clicked, false otherwise
-    def is_clicked(self):
+    def is_clicked(self, click_pos):
         circle_center = (self.x, self.y)
         circle_radius = self.radius
+        distance_from_circle = distance(circle_center, click_pos)
+        return distance_from_circle < circle_radius and self.is_active
 
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                click_pos = event.pos
-                distance_from_circle = distance(circle_center, click_pos)
 
-                return distance_from_circle <= circle_radius and self.is_active
-        return False
+        #return distance_from_circle <= circle_radius and self.is_active
+       # return False
 
 
         #TODO this hasn't actually been written yet
@@ -60,6 +58,8 @@ class Hole:
         self.counselor_images.remove(self.current_counselor)
         self.start_time = time.time()
         self.is_active = True
+        self.duration = random.random() * 2.5 + 0.5
+
 
     def despawn(self, ate_cookie):
         self.is_active = False
@@ -72,7 +72,8 @@ class Hole:
             pass
 
 
-
+    def check_timeout(self):
+        return self.is_active and time.time() - self.start_time > self.duration
 
 
     def draw(self):
