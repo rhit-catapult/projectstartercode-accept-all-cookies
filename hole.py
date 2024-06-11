@@ -5,6 +5,9 @@ import time
 import math
 
 
+global score
+
+
 def main():
     #main function! for debugging purposes
     pass
@@ -62,12 +65,16 @@ class Hole:
 
 
     def despawn(self, ate_cookie):
+        global score
         self.is_active = False
         self.counselor_images.append(self.current_counselor)
         if not ate_cookie:
             self.scream.play()
+            score -= 10
         else:
             self.eat.play()
+            score += 100
+
 
 
     def check_timeout(self):

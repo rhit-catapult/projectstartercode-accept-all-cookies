@@ -3,11 +3,12 @@ import sys
 import random
 import time
 import board
+import hole
 
 
 
 def main():
-    score = 0
+    hole.score = 0
     # turn on pygame
     pygame.init()
     # create a screen
@@ -15,8 +16,8 @@ def main():
     screen_width = 1000
     screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
-    rows = 100
-    columns = 100
+    rows = 3
+    columns = 4
     the_board = board.Board(screen, rows, columns)
     spawn_probabily = 0.997 #ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
@@ -50,7 +51,7 @@ def main():
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!
-        text = font.render(f"Score = {score}", True, (0, 0, 0))
+        text = font.render(f"Score = {hole.score}", True, (0, 0, 0))
         screen.blit(text, (0,0))
         cursor_img_rect.center = pygame.mouse.get_pos()  # update position
         screen.blit(cookie, cursor_img_rect)
