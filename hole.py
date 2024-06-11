@@ -35,6 +35,8 @@ class Hole:
         self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
         self.duration = 0.0
+        self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
+        self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
         print(self.counselor_images)
 
 
@@ -65,11 +67,9 @@ class Hole:
         self.is_active = False
         self.counselor_images.append(self.current_counselor)
         if not ate_cookie:
-            #TODO add code to play scream
-            pass
+            self.scream.play()
         else:
-            #TODO add code to play eating sound
-            pass
+            self.eat.play()
 
 
     def check_timeout(self):
