@@ -50,5 +50,6 @@ class Board():
     def update(self, click_pos):
         for hole in self.holes:
             if hole.is_clicked(click_pos):
-                hole.despawn(True)
-                print(True)
+                hole.despawn(ate_cookie=True)
+            if hole.check_timeout():
+                hole.despawn(ate_cookie=False)
