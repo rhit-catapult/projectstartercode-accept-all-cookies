@@ -25,6 +25,10 @@ def main():
     clock = pygame.time.Clock()
     the_board.spawn_counselor()
     click_pos = (0,0)
+    pygame.mouse.set_visible(False)
+    cookie = pygame.image.load("Images/Cookie.png")
+    cookie = pygame.transform.scale(cookie, (25, 25))
+    cursor_img_rect = cookie.get_rect()
     while True:
         clicked = False
         for event in pygame.event.get():
@@ -48,6 +52,8 @@ def main():
         # don't forget the update, otherwise nothing will show up!
         text = font.render(f"Score = {score}", True, (0, 0, 0))
         screen.blit(text, (0,0))
+        cursor_img_rect.center = pygame.mouse.get_pos()  # update position
+        screen.blit(cookie, cursor_img_rect)
         pygame.display.update()
 
 
