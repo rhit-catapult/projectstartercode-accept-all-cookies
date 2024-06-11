@@ -79,4 +79,3 @@ class Hole:
         if self.is_active:
             self.screen.blit(self.current_counselor, (self.x - self.radius, self.y - self.radius))
 
-
