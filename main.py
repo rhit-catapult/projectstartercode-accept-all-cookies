@@ -21,6 +21,9 @@ def main():
     spawn_probabily = 0.997 #ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
 
+    #TODO add start screen
+    screen.fill()
+
     # let's set the frame rate
     clock = pygame.time.Clock()
     the_board.spawn_counselor()
