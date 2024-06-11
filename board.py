@@ -9,11 +9,14 @@ class Board():
         self.screen = screen
         self.rows = rows
         self.columns = columns
+        self.scream = pygame.mixer.Sound("Wilhelm Scream..mp3")
+        self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
         self.counselor_images = [
             "Images/Aaron.png", "Images/Anahita.png", "Images/Brayden.png", "Images/Claire.png",
             "Images/Eathan.png", "Images/Eli.png", "Images/Elley.png", "Images/Emmet.png",
             "Images/Fox.png", "Images/Hoyt.png", "Images/Kali.png", "Images/Micheal.png",
             "Images/Reid.png", "Images/Ruby.png", "Images/Sparks.png", "Images/Tyler.png"
+
         ]
         # for image in self.counselor_images:
         #     height = image.get_height()
@@ -52,3 +55,4 @@ class Board():
             if hole.is_clicked(click_pos):
                 hole.despawn(True)
                 print(True)
+
