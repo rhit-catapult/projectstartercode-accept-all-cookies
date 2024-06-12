@@ -46,8 +46,13 @@ class Hole:
 
     def spawn(self):
         # spawns the counselor
-        self.current_counselor = random.choice(self.counselor_images)
-        self.counselor_images.remove(self.current_counselor)
+        if random.randint(1, 1000000) == 1434:
+            rick_astley = pygame.image.load("Images/Rick Astley")
+            rick_astley = pygame.transform.scale(rick_astley, (2 * self.radius, 2 * self.radius))
+            self.current_counselor = rick_astley
+        else:
+            self.current_counselor = random.choice(self.counselor_images)
+            self.counselor_images.remove(self.current_counselor)
         self.start_time = time.time()
         self.is_active = True
         self.duration = random.random() * 2.5 + 0.5
