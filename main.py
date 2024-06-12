@@ -6,6 +6,7 @@ import random
 from samples import board
 import hole
 import time
+import instructionscreen
 
 
 
@@ -49,15 +50,15 @@ def main():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     return
-            screen.fill((172, 45, 201))
 
             screen.blit(start, (0, 0))
             pygame.display.update()
             if random.random() > 0.99999:
                 break
-        pygame.mouse.set_visible(False)
 
     start_screen()
+    instructionscreen.instruction_screen(screen)
+    pygame.mouse.set_visible(False)
     start_time = time.time()
     end_time = start_time + 10 #seconds
 
