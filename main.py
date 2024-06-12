@@ -87,13 +87,13 @@ def main():
         score_text = font.render(f"Score = {hole.score}", True, (0, 0, 0))
         time_text = font.render(f"Time: {math.ceil(end_time - time.time())}", True, (0,0,0))
         screen.blit(score_text, (0,0))
-        screen.blit(time_text, (900,0))
+        screen.blit(time_text, (screen_width - 200,0))
         cursor_img_rect.center = pygame.mouse.get_pos()  # update position
         screen.blit(cookie, cursor_img_rect)
 
         pygame.display.update()
     pygame.mouse.set_visible(True)
-    win_score = 6500
+    win_score = 5500
     if hole.score >= win_score:
         end_image = win_image
     else:
