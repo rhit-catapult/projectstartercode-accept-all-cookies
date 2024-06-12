@@ -1,8 +1,11 @@
+import math
+
 import pygame
 import sys
 import random
-from Images import board
+from samples import board
 import hole
+import time
 
 
 
@@ -34,8 +37,12 @@ def main():
     cursor_img_rect = cookie.get_rect()
     start = pygame.image.load("Images/StartScreen")
     start = pygame.transform.scale(start, (screen_width, screen_height))
+    win_image = pygame.image.load("Images/CookieRoyale")
+    win_image = pygame.transform.scale(win_image, (screen_width, screen_height))
+    loose_image = pygame.image.load("Images/Funished")
+    loose_image = pygame.transform.scale(loose_image, (screen_width, screen_height))
 
-    def startstive():
+    def start_screen():
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -50,9 +57,13 @@ def main():
                 break
         pygame.mouse.set_visible(False)
 
-    startstive()
+    start_screen()
+    start_time = time.time()
+    end_time = start_time + 10 #seconds
 
     while True:
+        if time.time() > end_time:
+            break
         clicked = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -73,12 +84,31 @@ def main():
         # TODO: Add your project code
 
         # don't forget the update, otherwise nothing will show up!
-        text = font.render(f"Score = {hole.score}", True, (0, 0, 0))
-        screen.blit(text, (0,0))
+        score_text = font.render(f"Score = {hole.score}", True, (0, 0, 0))
+        time_text = font.render(f"Time: {math.ceil(end_time - time.time())}", True, (0,0,0))
+        screen.blit(score_text, (0,0))
+        screen.blit(time_text, (900,0))
         cursor_img_rect.center = pygame.mouse.get_pos()  # update position
         screen.blit(cookie, cursor_img_rect)
 
         pygame.display.update()
 
+    win_score = 1000
+    if hole.score >= win_score:
+        end_image = win_image
+    else:
+        end_image = loose_image
+    clicked=False
+    while not clicked:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                clicked=True
 
-main()
+
+        screen.blit(end_image, (0, 0))
+        pygame.display.update()
+
+while True:
+    main()
