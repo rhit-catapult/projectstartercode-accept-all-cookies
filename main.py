@@ -1,7 +1,7 @@
 import pygame
 import sys
 import random
-from Images import board
+from samples import board
 import hole
 
 
