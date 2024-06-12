@@ -9,7 +9,6 @@ import time
 import instructionscreen
 
 
-
 def main():
     hole.score = 0
     # turn on pygame
@@ -22,16 +21,10 @@ def main():
     rows = 3
     columns = 4
     the_board = board.Board(screen, rows, columns)
-    spawn_probabily = 0.998 #ehh... sort of
+    spawn_probability = 0.998  # ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
-
-    #TODO add start screen
-
-
-    # let's set the frame rate
-    clock = pygame.time.Clock()
     the_board.spawn_counselor()
-    click_pos = (0,0)
+    click_pos = (0, 0)
     pygame.mouse.set_visible(True)
     cookie = pygame.image.load("Images/Cookie.png")
     cookie = pygame.transform.scale(cookie, (25, 25))
@@ -45,21 +38,20 @@ def main():
 
     def start_screen():
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+            for an_event in pygame.event.get():
+                if an_event.type == pygame.QUIT:
                     sys.exit()
-                if event.type == pygame.MOUSEBUTTONDOWN:
+                if an_event.type == pygame.MOUSEBUTTONDOWN:
                     return
 
             screen.blit(start, (0, 0))
             pygame.display.update()
 
-
     start_screen()
     instructionscreen.instruction_screen(screen)
     pygame.mouse.set_visible(False)
     start_time = time.time()
-    end_time = start_time + 45 #seconds
+    end_time = start_time + 45  # seconds
 
     while True:
         if time.time() > end_time:
@@ -72,11 +64,11 @@ def main():
                 click_pos = event.pos
                 clicked = True
         if not clicked:
-            click_pos = (0,0)
+            click_pos = (0, 0)
 
             # TODO: Add you events code
 
-        if random.random() > spawn_probabily:
+        if random.random() > spawn_probability:
             the_board.spawn_counselor()
         screen.fill((172, 45, 201))
         the_board.update(click_pos)
@@ -85,9 +77,9 @@ def main():
 
         # don't forget the update, otherwise nothing will show up!
         score_text = font.render(f"Score = {hole.score}", True, (0, 0, 0))
-        time_text = font.render(f"Time: {math.ceil(end_time - time.time())}", True, (0,0,0))
-        screen.blit(score_text, (0,0))
-        screen.blit(time_text, (screen_width - 200,0))
+        time_text = font.render(f"Time: {math.ceil(end_time - time.time())}", True, (0, 0, 0))
+        screen.blit(score_text, (0, 0))
+        screen.blit(time_text, (screen_width - 200, 0))
         cursor_img_rect.center = pygame.mouse.get_pos()  # update position
         screen.blit(cookie, cursor_img_rect)
 
@@ -98,17 +90,17 @@ def main():
         end_image = win_image
     else:
         end_image = loose_image
-    clicked=False
+    clicked = False
     while not clicked:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                clicked=True
-
+                clicked = True
 
         screen.blit(end_image, (0, 0))
         pygame.display.update()
+
 
 while True:
     main()

@@ -1,16 +1,10 @@
 import pygame
-import sys
 import random
 import time
 import math
 
 
 global score
-
-
-def main():
-    #main function! for debugging purposes
-    pass
 
 
 def distance(point1, point2):
@@ -27,42 +21,35 @@ def distance(point1, point2):
 
 
 class Hole:
-    #recieves information from the board, initializes holes
+    # receives information from the board, initializes holes
     def __init__(self, screen, x, y, counselor_images, radius):
         self.screen = screen
-        self.x = x #center circle x coord
-        self.y = y #center circle y coord
-        self.counselor_images = counselor_images #counselor images
-        self.radius = radius #radius of hole
-        self.is_active = False #is there a counselor in the hole
-        self.start_time = -1.0 #-1.0 when is_active is False, otherwise the most recent activation time\
+        self.x = x  # center circle x coord
+        self.y = y  # center circle y coord
+        self.counselor_images = counselor_images  # counselor images
+        self.radius = radius  # radius of hole
+        self.is_active = False  # is there a counselor in the hole
+        self.start_time = -1.0  # -1.0 when is_active is False, otherwise the most recent activation time\
         self.current_counselor = None
         self.duration = 0.0
         self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
         self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
 
-    #takes no input
-    #returns boolean value - true if clicked, false otherwise
+    # takes no input
+    # returns boolean value - true if clicked, false otherwise
     def is_clicked(self, click_pos):
         circle_center = (self.x, self.y)
         circle_radius = self.radius
         distance_from_circle = distance(circle_center, click_pos)
         return distance_from_circle < circle_radius and self.is_active
 
-
-        #return distance_from_circle <= circle_radius and self.is_active
-       # return False
-
-
-        #TODO this hasn't actually been written yet
     def spawn(self):
-        #spawns the counselor
+        # spawns the counselor
         self.current_counselor = random.choice(self.counselor_images)
         self.counselor_images.remove(self.current_counselor)
         self.start_time = time.time()
         self.is_active = True
         self.duration = random.random() * 2.5 + 0.5
-
 
     def despawn(self, ate_cookie):
         global score
@@ -75,11 +62,8 @@ class Hole:
             self.eat.play()
             score += 100
 
-
-
     def check_timeout(self):
         return self.is_active and time.time() - self.start_time > self.duration
-
 
     def draw(self):
         pygame.draw.circle(self.screen, (0, 0, 0), (self.x, self.y), self.radius)

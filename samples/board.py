@@ -1,10 +1,10 @@
 import hole
-import math
 import pygame
 import random
 
+
 # This is the board. It manages the holes.
-class Board():
+class Board:
     def __init__(self, screen, rows, columns):
         self.screen = screen
         self.rows = rows
@@ -33,26 +33,25 @@ class Board():
 
         for i in range(columns):
             for j in range(rows):
-                    x = self.x_gap * (i + 0.5) + self.hole_radius * (1 + 2 * i)
-                    y = self.y_gap * (j + 0.5) + self.hole_radius * (1 + 2 * j)
-                    self.holes.append(hole.Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
+                x = self.x_gap * (i + 0.5) + self.hole_radius * (1 + 2 * i)
+                y = self.y_gap * (j + 0.5) + self.hole_radius * (1 + 2 * j)
+                self.holes.append(hole.Hole(self.screen, x, y, self.counselor_images, self.hole_radius))
 
     # This tells each hole to draw itself
     def draw(self):
-        for hole in self.holes:
-            hole.draw()
+        for an_hole in self.holes:
+            an_hole.draw()
 
     # This tells an empty hole to spawn a counselor#
     def spawn_counselor(self):
-        hole = random.choice(self.holes)
-        while hole.is_active:
-            hole = random.choice(self.holes)
-        hole.spawn()
-
+        an_hole = random.choice(self.holes)
+        while an_hole.is_active:
+            an_hole = random.choice(self.holes)
+        an_hole.spawn()
 
     def update(self, click_pos):
-        for hole in self.holes:
-            if hole.is_clicked(click_pos):
-                hole.despawn(ate_cookie=True)
-            if hole.check_timeout():
-                hole.despawn(ate_cookie=False)
+        for an_hole in self.holes:
+            if an_hole.is_clicked(click_pos):
+                an_hole.despawn(ate_cookie=True)
+            if an_hole.check_timeout():
+                an_hole.despawn(ate_cookie=False)
