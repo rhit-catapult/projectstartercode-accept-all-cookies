@@ -3,7 +3,7 @@ import math
 import pygame
 import sys
 import random
-from samples import board
+import board
 import hole
 import time
 import instructionscreen
