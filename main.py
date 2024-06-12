@@ -88,7 +88,7 @@ def main():
     win_score = 4000
     if hole.score >= win_score:
         end_image = win_image
-        end_sound = None
+        end_sound = pygame.mixer.Sound("Victory.mp3")
     else:
         end_image = loose_image
         end_sound = pygame.mixer.Sound("Gameover.mp3")
