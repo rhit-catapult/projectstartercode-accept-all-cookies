@@ -70,7 +70,7 @@ def main():
 
         if random.random() > spawn_probability:
             the_board.spawn_counselor()
-        screen.fill((172, 45, 201))
+        screen.fill((175, 157, 255))
         the_board.update(click_pos)
         the_board.draw()
         # TODO: Add your project code
