@@ -3,7 +3,7 @@ import sys
 
 
 def instruction_screen(screen):
-    instruction_screen_image = pygame.image.load("Images/instructions")
+    instruction_screen_image = pygame.image.load("Images/Instructions.png")
     instruction_screen_image = pygame.transform.scale(instruction_screen_image,
                                                       (screen.get_width(), screen.get_height()))
     while True:
