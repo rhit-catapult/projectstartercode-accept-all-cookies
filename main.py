@@ -97,7 +97,7 @@ def main():
     if hole.score >= win_score:
         end_image = win_image
     else:
-        end_time = win_image
+        end_time = loose_image
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
