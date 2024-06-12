@@ -99,7 +99,7 @@ def main():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                clicked = True
+                clicked = time.time() - end_time > end_sound.get_length()
 
         screen.blit(end_image, (0, 0))
         pygame.display.update()
