@@ -53,14 +53,13 @@ def main():
 
             screen.blit(start, (0, 0))
             pygame.display.update()
-            if random.random() > 0.99999:
-                break
+
 
     start_screen()
     instructionscreen.instruction_screen(screen)
     pygame.mouse.set_visible(False)
     start_time = time.time()
-    end_time = start_time + 10 #seconds
+    end_time = start_time + 45 #seconds
 
     while True:
         if time.time() > end_time:
@@ -93,8 +92,8 @@ def main():
         screen.blit(cookie, cursor_img_rect)
 
         pygame.display.update()
-
-    win_score = 1000
+    pygame.mouse.set_visible(True)
+    win_score = 6500
     if hole.score >= win_score:
         end_image = win_image
     else:
