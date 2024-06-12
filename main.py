@@ -51,7 +51,7 @@ def main():
     instructionscreen.instruction_screen(screen)
     pygame.mouse.set_visible(False)
     start_time = time.time()
-    end_time = start_time + 5  # seconds
+    end_time = start_time + 45  # seconds
 
     while True:
         if time.time() > end_time:
