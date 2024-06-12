@@ -51,7 +51,7 @@ def main():
     instructionscreen.instruction_screen(screen)
     pygame.mouse.set_visible(False)
     start_time = time.time()
-    end_time = start_time + 45  # seconds
+    end_time = start_time + 5  # seconds
 
     while True:
         if time.time() > end_time:
@@ -88,9 +88,12 @@ def main():
     win_score = 4000
     if hole.score >= win_score:
         end_image = win_image
+        end_sound = None
     else:
         end_image = loose_image
+        end_sound = pygame.mixer.Sound("Gameover.mp3")
     clicked = False
+    end_sound.play()
     while not clicked:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

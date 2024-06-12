@@ -33,6 +33,7 @@ class Hole:
         self.current_counselor = None
         self.duration = 0.0
         self.scream = pygame.mixer.Sound("Wilhelm Scream.mp3")
+        self.scream.set_volume(0.5)
         self.eat = pygame.mixer.Sound("Mincraft Eating Sound.mp3")
 
     # takes no input
