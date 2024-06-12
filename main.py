@@ -23,7 +23,6 @@ def main():
     the_board = board.Board(screen, rows, columns)
     spawn_probability = 0.998  # ehh... sort of
     font = pygame.font.SysFont("papyrus", 32)
-    the_board.spawn_counselor()
     click_pos = (0, 0)
     pygame.mouse.set_visible(True)
     cookie = pygame.image.load("Images/Cookie.png")
