@@ -97,7 +97,7 @@ def main():
     if hole.score >= win_score:
         end_image = win_image
     else:
-        end_time = loose_image
+        end_image = loose_image
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -105,7 +105,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click_pos = event.pos
                 clicked = True
-        screen.blit(win_image, (0, 0))
+        screen.blit(end_image, (0, 0))
         pygame.display.update()
 
 
