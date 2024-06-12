@@ -85,7 +85,7 @@ def main():
 
         pygame.display.update()
     pygame.mouse.set_visible(True)
-    win_score = 5500
+    win_score = 4000
     if hole.score >= win_score:
         end_image = win_image
     else:
