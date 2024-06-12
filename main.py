@@ -98,15 +98,17 @@ def main():
         end_image = win_image
     else:
         end_image = loose_image
-    while True:
+    clicked=False
+    while not clicked:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                click_pos = event.pos
-                clicked = True
+                clicked=True
+
+
         screen.blit(end_image, (0, 0))
         pygame.display.update()
 
-
-main()
+while True:
+    main()
